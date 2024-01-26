@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+
+    {% if category %}
+        {{ category.description| truncatewords:155 }}
+    {% else %}
+            Welcome to Codiac store...............
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }} Codiac store
+    {% else %}
+
+    {% endif %}
+{% endblock %}
+
+{% block content  %}
+        {% if category %}
+
+<div>
+    <div class="row my_row_class">
+        <div class="mx-auto">
+        <p><a href="{% url 'shopapp:allProdCat' %}"> Our Product Collections </p>
+    </div>
+</div>
+</div>
+        {% endif %}
+
+<div class="mx_auto">
+
+    {% if category %}
+    <img class="my_image my_image_padding" src="{{category.image.url}}"width="200px;" height="200px;" alt="{{ category.name }}" >
+</div>
+<br>
+<div> 
+    <h1 class="text-center my_title"> {{ category.name }} </h1>
+    <p class="text-justify"> {{ category.des }} </p>
+</div>
+    {% else %}
+    <div>
+        <img  class="my_image my_image_padding" src="{% static 'img/banner.jpg' %}"  alt="Our Product">
+    </div>
+    <br>
+    <div>
+        <h1 class="text-center my_title"> Our Products Collections </h1>
+        <p class="text-justify">  Certaines personnes sont susceptibles de faire des crises d'épilepsie
+             ou d'avoir des pertes de conscience à la vue de certains types de
+            lumières clignotantes ou d'éléments fréquents dans notre 
+            environnement quotidien. Ces personnes s'exposent à des crises 
+            lorsqu'elles regardent certaines images télévisées ou lorsqu'elles
+            jouent à certains jeux vidéo. Ces phénomènes peuvent apparaître 
+            alors même que le sujet n'a pas d'antécédent médical ou n'a jamais
+            été confronté à une crise d'épilepsie. Si vous (ou un membre de votre
+            famille) avez déjà présenté des symptômes liés à l'épilepsie
+            (crise ou perte de conscience) en présence de stimulations lumineuses,
+            veuillez consulter votre médecin avant toute utilisation.</p>
+        </div>
+    {% endif %}
+    
+<div class="container">
+    <div class="row mx_auto">
+        {% for product in products.object_list %}
+        <div class="col-4">
+            {% comment %} <div class="card"> {% endcomment %}
+                <div class="card-body">
+        <div class="my_bottom_margi col-9   col-sm-12   col-md-4   col-md-4   xol-lg-4">
+            <div class="card text-center" style="min-width:18rem;">
+                <a href="{{ product.get_url }}"><img class="card-img-top my_image" src="{{ product.image.url }}" width="200px;" height="200px;"  alt="{{ product.name }}"></a>
+              <div class="card-body">
+                <h4>{{ product.name }} </h4>
+                <p> {{ product.price }} </p>
+              </div>
+            </div>
+                    </div>
+                {% comment %} </div> {% endcomment %}
+    </div>
+</div>
+    {% endfor %}
+</div>
+
+<div class="mx-auto">
+    {% if products.paginator.num_pages > 1 %}
+    <hr>
+    <div class="text-center">
+        {% for pg in products.paginator.page_range %}
+                <a href="?page={{ pg }}"  class="btn btn-light btn-sm" {% if products.number == pg %} active {% endif %}>{{ pg }}</a>
+        {% endfor %}
+        </div>
+    {% endif %} 
+    
+    </div>
+    <br>
+</div></div>
+{% endblock %}

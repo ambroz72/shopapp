@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Shop</a>
+          </li>
+          <li class="nav-item dropdown" {% if 'shop' in request.path %} active {% endif %}>
+ 
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'shopapp:allProdCat' %}">All products</a>
+                {% for cat in links %}
+                <a class="nav-link" href="{{ cat.get_url }}">({{cat.name }})</a></li>
+                {% endfor %} 
+              </ul>
+            </li>
+            {% if item_count > 0 %}
+          {% comment %} <li class="nav-item"> {% endcomment %}
+            <a class="nav-link" href="{% url 'cart:cart_detail' %}"><i class="fa-solid fa-cart-shopping"></i>({{ item_count }})</a>
+            {% comment %} <a class="nav-link" href="{% url 'cart:cart_detail' %}">Cart </a> {% endcomment %}
+          {% comment %} </li> {% endcomment %}
+            {% endif %}
+
+        <form class="d-flex" action="{% url 'search_app:SearchResult' %}" method="get">
+           {% csrf_token %}
+          <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
