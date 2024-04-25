@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
@@ -11,7 +12,7 @@
 
 {% block title %}
     {% if category %}
-        {{ category.name }} Codiac store
+        {{ category.name }}
     {% else %}
 
     {% endif %}
@@ -30,9 +31,8 @@
         {% endif %}
 
 <div class="mx_auto">
-
     {% if category %}
-    <img class="my_image my_image_padding" src="{{category.image.url}}"width="200px;" height="200px;" alt="{{ category.name }}" >
+    <img class="my_image my_image_padding" src="{{category.image.url}}" width="200px;" height="200px;" alt="{{ category.name }}" >
 </div>
 <br>
 <div> 
@@ -59,28 +59,25 @@
             veuillez consulter votre médecin avant toute utilisation.</p>
         </div>
     {% endif %}
-    
-<div class="container">
-    <div class="row mx_auto">
-        {% for product in products.object_list %}
-        <div class="col-4">
-            {% comment %} <div class="card"> {% endcomment %}
-                <div class="card-body">
-        <div class="my_bottom_margi col-9   col-sm-12   col-md-4   col-md-4   xol-lg-4">
-            <div class="card text-center" style="min-width:18rem;">
-                <a href="{{ product.get_url }}"><img class="card-img-top my_image" src="{{ product.image.url }}" width="200px;" height="200px;"  alt="{{ product.name }}"></a>
-              <div class="card-body">
-                <h4>{{ product.name }} </h4>
-                <p> {{ product.price }} </p>
-              </div>
-            </div>
-                    </div>
-                {% comment %} </div> {% endcomment %}
-    </div>
-</div>
-    {% endfor %}
-</div>
 
+    <div class="container">
+        <div class="row mx-auto">
+            {% for product in products.object_list %}
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="width: 100%;">
+                        <a href="{{ product.get_url }}">
+                            <img class="card-img-top my_image" src="{{ product.image.url }}" style="width: 100%; height: 200px;" alt="{{ product.name }}">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ product.name }}</h4>
+                            <p class="card-text">{{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  
 <div class="mx-auto">
     {% if products.paginator.num_pages > 1 %}
     <hr>
@@ -93,5 +90,6 @@
     
     </div>
     <br>
-</div></div>
-{% endblock %}
+</div>
+
+{% endblock %} 

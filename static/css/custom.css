@@ -52,11 +52,13 @@ body {
     margin-bottom: 10px;
 }
 
+
+/* 
 .card-body h4 {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: .2em;
-}
+} */
 
 
 /* Product page */
@@ -86,7 +88,11 @@ body {
 
 .my_search_text {
     padding-top: 20px;
+    padding-right: 20px;
 }
+
+
+/* 8-4-24*/
 
 
 /* cart page */
