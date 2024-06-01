@@ -29,7 +29,8 @@ Context Processors:
 menu_links: Renders a menu on the storefront, dynamically populating category links for easy navigation.
 counter: Keeps track of the total number of items in the customer's cart, providing a visual indicator.
 
-![screenshot](screenshot/cart.png)
+
+![screenshot](screenshot/category.png)
 
 Cart Views:
 
@@ -39,7 +40,6 @@ cart_detail: Displays the contents of the cart, including product details, quant
 cart_remove: Allows customers to remove items from their cart, either partially or completely.
 delete: Permanently removes an item from the customer's cart.
 
-![screenshot](screenshot/search.png)
 
 Installation Guide:
 
@@ -50,7 +50,7 @@ Create a virtual environment using python3 -m venv venv.
 Activate the environment using source venv/bin/activate (Linux/macOS) or venv\Scripts\activate (Windows).
 Install Dependencies: Run pip install -r requirements.txt to install the required Python packages.
 
-![screenshot](screenshot/category.png)
+![screenshot](screenshot/cart.png)
 
 Database Setup:
 
