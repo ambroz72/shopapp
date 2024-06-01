@@ -1,5 +1,5 @@
 python anywhere : https://djangoshopin.pythonanywhere.com/shopapp/    
-(validity until july 2024)
+(valid until july 2024)
 
 # Codiac Shop: A Feature-Rich E-Commerce Django Project
 This is a E-commerce website built with Django,Python,HTML,CSS,Bootstrap & Javascript 
