@@ -1,11 +1,10 @@
-python anywhere : https://djangoshopin.pythonanywhere.com/shopapp/    
-(valid until july 2024)
-
 # Codiac Shop: A Feature-Rich E-Commerce Django Project
 This is a E-commerce website built with Django,Python,HTML,CSS,Bootstrap & Javascript 
 
 Codiac Shop is a robust e-commerce platform built using Django that empowers you to establish a flourishing online store. It offers a user-friendly interface for both customers and administrators, enabling seamless product browsing, cart management, and checkout processes.
 
+python anywhere : https://djangoshopin.pythonanywhere.com/shopapp/    
+(valid until july 2024)
 ![screenshot](screenshot/home.png)
 
 Key Features:
